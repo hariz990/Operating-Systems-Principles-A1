@@ -1,0 +1,12 @@
+.default: all
+
+all: allocate
+
+clean:
+	rm -rf allocate *.o *.dSYM
+
+allocate: OSP-Assignment1.o
+	g++ -Wall -Werror -pedantic -std=c++17 -g -O -o $@ $^
+
+%.o: %.cpp
+	g++ -Wall -Werror -pedantic -std=c++17 -g -O -c $^
